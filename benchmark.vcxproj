@@ -106,7 +106,7 @@
       <WarningLevel>Level4</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;HAVE_STD_REGEX;HAVE_STEADY_CLOCK;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DisableSpecificWarnings>4512;4127</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4512;4127;4244</DisableSpecificWarnings>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;HAVE_STD_REGEX;HAVE_STEADY_CLOCK;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -139,7 +139,7 @@
       <WarningLevel>Level4</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;HAVE_STD_REGEX;HAVE_STEADY_CLOCK;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DisableSpecificWarnings>4512;4127</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4512;4127;4244</DisableSpecificWarnings>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_CRT_SECURE_NO_WARNINGS;HAVE_STD_REGEX;HAVE_STEADY_CLOCK;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -170,7 +170,7 @@
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
-      <DisableSpecificWarnings>4512;4127</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4512;4127;4244</DisableSpecificWarnings>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;HAVE_STD_REGEX;HAVE_STEADY_CLOCK;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -203,7 +203,7 @@
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
-      <DisableSpecificWarnings>4512;4127</DisableSpecificWarnings>
+      <DisableSpecificWarnings>4512;4127;4244</DisableSpecificWarnings>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;HAVE_STD_REGEX;HAVE_STEADY_CLOCK;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -221,7 +221,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="benchmark\src\benchmark.cc" />
+    <ClCompile Include="benchmark\src\benchmark_api_internal.cc" />
+    <ClCompile Include="benchmark\src\benchmark_main.cc" />
     <ClCompile Include="benchmark\src\benchmark_register.cc" />
+    <ClCompile Include="benchmark\src\benchmark_runner.cc" />
     <ClCompile Include="benchmark\src\colorprint.cc" />
     <ClCompile Include="benchmark\src\commandlineflags.cc" />
     <ClCompile Include="benchmark\src\complexity.cc" />
@@ -238,6 +241,8 @@
     <ClInclude Include="benchmark\include\benchmark\benchmark.h" />
     <ClInclude Include="benchmark\src\arraysize.h" />
     <ClInclude Include="benchmark\src\benchmark_api_internal.h" />
+    <ClInclude Include="benchmark\src\benchmark_register.h" />
+    <ClInclude Include="benchmark\src\benchmark_runner.h" />
     <ClInclude Include="benchmark\src\check.h" />
     <ClInclude Include="benchmark\src\colorprint.h" />
     <ClInclude Include="benchmark\src\commandlineflags.h" />
@@ -251,9 +256,12 @@
     <ClInclude Include="benchmark\src\sleep.h" />
     <ClInclude Include="benchmark\src\statistics.h" />
     <ClInclude Include="benchmark\src\string_util.h" />
+    <ClInclude Include="benchmark\src\thread_manager.h" />
+    <ClInclude Include="benchmark\src\thread_timer.h" />
     <ClInclude Include="benchmark\src\timers.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="benchmark\src\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
